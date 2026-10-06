@@ -1,0 +1,68 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "mega-components",
+  "homepage": "https://strudel.science",
+  "items": [
+    {
+      "name": "chemical-formula",
+      "type": "registry:ui",
+      "title": "Chemical Formula",
+      "description": "Render chemical formulas with accurate typographic subscripts and symbol parsing.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/components/ChemicalFormula/ChemicalFormula.tsx",
+          "type": "registry:ui",
+          "target": "components/mega/chemical-formula.tsx"
+        }
+      ]
+    },
+    {
+      "name": "linear-meter",
+      "type": "registry:ui",
+      "title": "Linear Meter",
+      "description": "Compact horizontal meter and threshold visualizer with ARIA semantics.",
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/components/LinearMeter/LinearMeter.tsx",
+          "type": "registry:ui",
+          "target": "components/mega/linear-meter.tsx"
+        }
+      ]
+    },
+    {
+      "name": "label-value-table",
+      "type": "registry:ui",
+      "title": "Label Value Table",
+      "description": "Two-column metadata table for scientific attributes and entities.",
+      "dependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/components/LabelValueTable/LabelValueTable.tsx",
+          "type": "registry:ui",
+          "target": "components/mega/label-value-table.tsx"
+        }
+      ]
+    },
+    {
+      "name": "link-card",
+      "type": "registry:ui",
+      "title": "Link Card",
+      "description": "Interactive card linking to datasets, publications, or external resources.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["card"],
+      "files": [
+        {
+          "path": "src/components/LinkCard/LinkCard.tsx",
+          "type": "registry:ui",
+          "target": "components/mega/link-card.tsx"
+        }
+      ]
+    }
+  ]
+}
+

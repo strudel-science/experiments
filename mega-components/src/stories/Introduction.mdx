@@ -1,0 +1,32 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Getting Started/Introduction" />
+
+# Mega Components Library
+
+A comprehensive, reusable frontend component library for science and research-focused web applications, developed as part of the STRUDEL ecosystem.
+
+## Goals & Philosophy
+
+Scientific web applications (such as data portals, HPC job trackers, laboratory telemetry dashboards, and data exploration tools) have distinct requirements:
+
+- **Typographic accuracy**: Correct formatting of units, subscripts, superscripts, chemical formulas, and coordinates.
+- **Data density**: Compact, readable display of complex experimental metadata and parameters.
+- **Accessibility & Semantics**: Standards-compliant semantic HTML and ARIA roles for meters, ranges, and data grids.
+- **Modular distribution**: Components distributable via the modern `shadcn` registry format so projects can adopt only what they need with full source code ownership.
+
+## Architecture
+
+- **React 19 & TypeScript**: Strict typing and modern React patterns.
+- **Base UI**: Accessible unstyled primitives by MUI.
+- **Tailwind CSS v4**: Themeable design system using CSS variables.
+- **shadcn Registry**: Installable directly with `npx shadcn add`.
+- **Vitest**: Blazing fast testing.
+- **Oxlint & Oxfmt**: Ultra-fast Rust-based linting and formatting.
+
+## Initial Components
+
+1. **ChemicalFormula**: Parses and renders chemical formulas with automatic subscripts, hydrate dots, and charge annotations.
+2. **LinearMeter**: Accessible horizontal bar for 1D scientific metrics, thresholds, and utilization.
+3. **LabelValueTable**: Two-column layout for sample attributes, experiment metadata, and parameters.
+4. **LinkCard**: Resource card linking to datasets, facilities, or publications.

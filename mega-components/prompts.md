@@ -1,0 +1,3 @@
+ ## 10/06/2026
+
+ I want to begin implementing the Mega Components Library as described in the attached AGENTS.md specification file. Please ask questions if anything is confusing or needs my input. This should be an initial pass. We will continue to develop this library iteratively. However, I do want the initial version to be usable and runnable. All generated code for this library should be housed in experiments/mega-components/.
