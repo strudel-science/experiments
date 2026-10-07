@@ -9,3 +9,11 @@ Move the custom science focused components into their own subdirectory under com
 ## 10/06/2026 05:22 PM
 
 move all the utils into one src/utils.ts file. And I think we can get rid of src/lib/utils. I don't know why it's there.
+
+## 10/06/2026 06:06 PM
+
+@[mega-components/.oxlintrc.json] add a rule about preferring arrow functions
+
+### 06:12 PM
+
+I do want to also want to disallow function declarations in favor of const foo = () => ... function expressions across the codebase

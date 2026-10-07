@@ -71,8 +71,9 @@ There should also be a set of shared utility functions for commons computations 
 - Props should always have docstrings
 - Components should always have docstrings
 - Always import and use react methods explicitly (e.g. `useState()`) instead of using the base `React` variable for everything (e.g. `React.useState()`)
+- In most circumstances, use arrow function expression to define functions (including components) 
 
 ## Agent Behavior
 
 - Always summarize and explain what you did and why you did it after making changes.
-- Log my exact prompts in `prompts.md`
+- Log my exact prompts in `prompts.md`. Each initial prompt for a chat thread should be logged with ## while any follow-up prompts within that same thread should use ### and only show the time (not the full date).

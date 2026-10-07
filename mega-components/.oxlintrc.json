@@ -9,7 +9,17 @@
   "categories": {
     "correctness": "error"
   },
-  "rules": {},
+  "rules": {
+    "prefer-arrow-callback": "error",
+    "func-style": ["error", "expression"],
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ]
+  },
   "env": {
     "builtin": true,
     "browser": true
