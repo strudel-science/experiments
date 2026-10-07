@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ExternalLink } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export interface LinkCardProps extends Omit<

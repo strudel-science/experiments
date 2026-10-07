@@ -1,6 +1,5 @@
 import * as React from "react";
-import { cn } from "@/lib/utils";
-import { parseChemicalFormula, type FormulaToken } from "@/utils/scientific";
+import { cn, parseChemicalFormula, type FormulaToken } from "@/utils";
 
 export interface ChemicalFormulaProps extends React.HTMLAttributes<HTMLElement> {
   /**
