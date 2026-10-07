@@ -74,5 +74,5 @@ There should also be a set of shared utility functions for commons computations 
 
 ## Agent Behavior
 
-Always summarize and explain what you did and why you did it after making changes.
-
+- Always summarize and explain what you did and why you did it after making changes.
+- Log my exact prompts in `prompts.md`
