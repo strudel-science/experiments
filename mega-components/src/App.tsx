@@ -207,7 +207,6 @@ export const App = () => {
                   ]}
                   labelWidth="200px"
                   bordered
-                  striped
                 />
               </CardContent>
             </Card>
