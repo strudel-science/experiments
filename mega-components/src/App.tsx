@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
-import { ChemicalFormula } from "@/components/ChemicalFormula";
-import { LinearMeter } from "@/components/LinearMeter";
-import { LabelValueTable } from "@/components/LabelValueTable";
-import { LinkCard } from "@/components/LinkCard";
+import { ChemicalFormula } from "@/components/kit/ChemicalFormula";
+import { LinearMeter } from "@/components/kit/LinearMeter";
+import { LabelValueTable } from "@/components/kit/LabelValueTable";
+import { LinkCard } from "@/components/kit/LinkCard";
 
 export function App() {
   const [isDark, setIsDark] = React.useState(false);

@@ -14,10 +14,10 @@ A reusable frontend component library for science and research-focused web appli
 
 ## Initial Components
 
-- [`ChemicalFormula`](src/components/ChemicalFormula/ChemicalFormula.tsx): Typographic subscripting for chemical formulas, hydrate dots, and complex ions.
-- [`LinearMeter`](src/components/LinearMeter/LinearMeter.tsx): Accessible progress and threshold bar with ARIA meter semantics.
-- [`LabelValueTable`](src/components/LabelValueTable/LabelValueTable.tsx): Accessible two-column layout for scientific metadata and parameters.
-- [`LinkCard`](src/components/LinkCard/LinkCard.tsx): Resource navigation cards for external data portals and internal workflows.
+- [`ChemicalFormula`](src/components/kit/ChemicalFormula/ChemicalFormula.tsx): Typographic subscripting for chemical formulas, hydrate dots, and complex ions.
+- [`LinearMeter`](src/components/kit/LinearMeter/LinearMeter.tsx): Accessible progress and threshold bar with ARIA meter semantics.
+- [`LabelValueTable`](src/components/kit/LabelValueTable/LabelValueTable.tsx): Accessible two-column layout for scientific metadata and parameters.
+- [`LinkCard`](src/components/kit/LinkCard/LinkCard.tsx): Resource navigation cards for external data portals and internal workflows.
 - Foundational Base UI Primitives: Button, Card, Badge, Tooltip (`src/components/ui/`).
 
 ## Scripts

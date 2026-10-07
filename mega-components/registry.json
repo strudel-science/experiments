@@ -12,7 +12,7 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "src/components/ChemicalFormula/ChemicalFormula.tsx",
+          "path": "src/components/kit/ChemicalFormula/ChemicalFormula.tsx",
           "type": "registry:ui",
           "target": "components/mega/chemical-formula.tsx"
         }
@@ -27,7 +27,7 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "src/components/LinearMeter/LinearMeter.tsx",
+          "path": "src/components/kit/LinearMeter/LinearMeter.tsx",
           "type": "registry:ui",
           "target": "components/mega/linear-meter.tsx"
         }
@@ -42,7 +42,7 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "src/components/LabelValueTable/LabelValueTable.tsx",
+          "path": "src/components/kit/LabelValueTable/LabelValueTable.tsx",
           "type": "registry:ui",
           "target": "components/mega/label-value-table.tsx"
         }
@@ -57,7 +57,7 @@
       "registryDependencies": ["card"],
       "files": [
         {
-          "path": "src/components/LinkCard/LinkCard.tsx",
+          "path": "src/components/kit/LinkCard/LinkCard.tsx",
           "type": "registry:ui",
           "target": "components/mega/link-card.tsx"
         }
