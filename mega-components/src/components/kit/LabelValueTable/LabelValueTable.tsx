@@ -59,7 +59,7 @@ export interface LabelValueTableProps extends TableHTMLAttributes<HTMLTableEleme
  * />
  * ```
  */
-export function LabelValueTable({
+export const LabelValueTable = ({
   rows,
   labelWidth = '160px',
   dense = false,
@@ -67,7 +67,7 @@ export function LabelValueTable({
   striped = false,
   className,
   ...props
-}: LabelValueTableProps) {
+}: LabelValueTableProps) => {
   const widthStyle = typeof labelWidth === 'number' ? `${labelWidth}px` : labelWidth;
 
   return (

@@ -47,7 +47,7 @@ export interface LinkCardProps extends Omit<AnchorHTMLAttributes<HTMLAnchorEleme
  * />
  * ```
  */
-export function LinkCard({
+export const LinkCard = ({
   title,
   description,
   href = '#',
@@ -57,7 +57,7 @@ export function LinkCard({
   target,
   className,
   ...props
-}: LinkCardProps) {
+}: LinkCardProps) => {
   const isExternalLink = isExternal ?? target === '_blank';
 
   return (

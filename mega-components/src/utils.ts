@@ -7,14 +7,14 @@ export { cn } from 'cn';
  * @param str - The snake_case string to format
  * @returns The formatted Title Case string
  */
-export function snakeToTitleCase(str: string): string {
+export const snakeToTitleCase = (str: string): string => {
   if (!str) return '';
   return str
     .split('_')
     .filter(Boolean)
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join(' ');
-}
+};
 
 /**
  * Converts camelCase, kebab-case, or snake_case string to Title Case.
@@ -23,7 +23,7 @@ export function snakeToTitleCase(str: string): string {
  * @param str - The input string
  * @returns The formatted Title Case string
  */
-export function toTitleCase(str: string): string {
+export const toTitleCase = (str: string): string => {
   if (!str) return '';
   // Replace underscores and hyphens with space, and insert space before uppercase letters
   const spaced = str
@@ -35,7 +35,7 @@ export function toTitleCase(str: string): string {
     .split(/\s+/)
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join(' ');
-}
+};
 
 /**
  * Truncates a string to a specified max length and appends an ellipsis.
@@ -44,10 +44,10 @@ export function toTitleCase(str: string): string {
  * @param maxLength - The maximum allowed length
  * @returns The truncated string
  */
-export function truncateString(str: string, maxLength: number): string {
+export const truncateString = (str: string, maxLength: number): string => {
   if (!str || str.length <= maxLength) return str;
   return `${str.slice(0, Math.max(0, maxLength - 3))}...`;
-}
+};
 
 /**
  * Standard chemical elements list (Periodic Table elements).
@@ -86,7 +86,7 @@ export interface FormulaToken {
  * @param formula - Raw formula string (e.g. 'H2O', 'Fe(NO3)3', 'SO4^2-', 'CuSO4·5H2O')
  * @returns Array of categorized formula tokens
  */
-export function parseChemicalFormula(formula: string): FormulaToken[] {
+export const parseChemicalFormula = (formula: string): FormulaToken[] => {
   if (!formula) return [];
 
   const tokens: FormulaToken[] = [];
@@ -117,7 +117,7 @@ export function parseChemicalFormula(formula: string): FormulaToken[] {
   }
 
   return tokens;
-}
+};
 
 /**
  * Determine if a value is truthy or present in the context of scientific filters.
@@ -126,7 +126,7 @@ export function parseChemicalFormula(formula: string): FormulaToken[] {
  * @param value - Any value to check
  * @returns True if considered a present value
  */
-export function hasValue(value: unknown): boolean {
+export const hasValue = (value: unknown): boolean => {
   if (value === 0 || value === false) {
     return true;
   }
@@ -134,7 +134,7 @@ export function hasValue(value: unknown): boolean {
     return value.length > 0;
   }
   return value !== null && value !== undefined && value !== '';
-}
+};
 
 /**
  * Determine if a numerical range value deviates from the default min/max bounds.
@@ -144,11 +144,15 @@ export function hasValue(value: unknown): boolean {
  * @param max - Maximum bound
  * @returns True if range represents an active filter
  */
-export function rangeHasValue(value: [number, number] | null | undefined, min: number, max: number): boolean {
+export const rangeHasValue = (
+  value: [number, number] | null | undefined,
+  min: number,
+  max: number,
+): boolean => {
   if (!value) return false;
   const [low, high] = value;
   return (low !== null && low !== min) || (high !== null && high !== max);
-}
+};
 
 /**
  * Formats a scientific number with configurable significant digits and optional exponential notation.
@@ -157,13 +161,13 @@ export function rangeHasValue(value: [number, number] | null | undefined, min: n
  * @param options - Formatting options
  * @returns Formatted number string
  */
-export function formatScientificNumber(
+export const formatScientificNumber = (
   val: number,
   options?: {
     precision?: number;
     useExponentialThreshold?: boolean;
   },
-): string {
+): string => {
   if (typeof val !== 'number' || Number.isNaN(val)) return 'N/A';
 
   const precision = options?.precision ?? 4;
@@ -177,4 +181,4 @@ export function formatScientificNumber(
   }
 
   return Number(val.toPrecision(precision)).toString();
-}
+};

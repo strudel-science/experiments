@@ -66,7 +66,7 @@ export interface LinearMeterProps
  * <LinearMeter value={75} variant="success" showValue />
  * ```
  */
-export function LinearMeter({
+export const LinearMeter = ({
   value,
   min = 0,
   max = 100,
@@ -76,7 +76,7 @@ export function LinearMeter({
   formatValue,
   className,
   ...props
-}: LinearMeterProps) {
+}: LinearMeterProps) => {
   const clampedValue = Math.min(Math.max(value, min), max);
   const range = max - min;
   const percentage = range > 0 ? ((clampedValue - min) / range) * 100 : 0;

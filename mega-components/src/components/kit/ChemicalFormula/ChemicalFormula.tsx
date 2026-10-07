@@ -17,7 +17,7 @@ export interface ChemicalFormulaProps extends HTMLAttributes<HTMLElement> {
 /**
  * Helper to render individual tokens with appropriate typographic subscript or standard styling.
  */
-function renderFormulaToken(token: FormulaToken, index: number): ReactNode {
+const renderFormulaToken = (token: FormulaToken, index: number): ReactNode => {
   if (token.type === 'number') {
     return (
       <sub
@@ -35,7 +35,7 @@ function renderFormulaToken(token: FormulaToken, index: number): ReactNode {
       {token.text}
     </span>
   );
-}
+};
 
 /**
  * ChemicalFormula renders a chemical formula string with correct typographic subscripts
@@ -46,7 +46,7 @@ function renderFormulaToken(token: FormulaToken, index: number): ReactNode {
  * <ChemicalFormula content="Fe2(SO4)3" className="font-semibold text-lg" />
  * ```
  */
-export function ChemicalFormula({ content, as: Component = 'span', className, ...props }: ChemicalFormulaProps) {
+export const ChemicalFormula = ({ content, as: Component = 'span', className, ...props }: ChemicalFormulaProps) => {
   const tokens = useMemo(() => parseChemicalFormula(content), [content]);
 
   return (

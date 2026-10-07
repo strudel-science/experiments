@@ -20,23 +20,23 @@ const THEME_VALUES: Theme[] = ['dark', 'light', 'system'];
 
 const ThemeProviderContext = createContext<ThemeProviderState | undefined>(undefined);
 
-function isTheme(value: string | null): value is Theme {
+const isTheme = (value: string | null): value is Theme => {
   if (value === null) {
     return false;
   }
 
   return THEME_VALUES.includes(value as Theme);
-}
+};
 
-function getSystemTheme(): ResolvedTheme {
+const getSystemTheme = (): ResolvedTheme => {
   if (window.matchMedia(COLOR_SCHEME_QUERY).matches) {
     return 'dark';
   }
 
   return 'light';
-}
+};
 
-function disableTransitionsTemporarily() {
+const disableTransitionsTemporarily = () => {
   const style = document.createElement('style');
   style.appendChild(
     document.createTextNode('*,*::before,*::after{-webkit-transition:none!important;transition:none!important}'),
@@ -51,9 +51,9 @@ function disableTransitionsTemporarily() {
       });
     });
   };
-}
+};
 
-function isEditableTarget(target: EventTarget | null) {
+const isEditableTarget = (target: EventTarget | null) => {
   if (!(target instanceof HTMLElement)) {
     return false;
   }
@@ -68,15 +68,15 @@ function isEditableTarget(target: EventTarget | null) {
   }
 
   return false;
-}
+};
 
-export function ThemeProvider({
+export const ThemeProvider = ({
   children,
   defaultTheme = 'system',
   storageKey = 'theme',
   disableTransitionOnChange = true,
   ...props
-}: ThemeProviderProps) {
+}: ThemeProviderProps) => {
   const [theme, setThemeState] = useState<Theme>(() => {
     const storedTheme = localStorage.getItem(storageKey);
     if (isTheme(storedTheme)) {

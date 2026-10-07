@@ -9,7 +9,7 @@ import { LinearMeter } from '@/components/kit/LinearMeter';
 import { LabelValueTable } from '@/components/kit/LabelValueTable';
 import { LinkCard } from '@/components/kit/LinkCard';
 
-export function App() {
+export const App = () => {
   const [isDark, setIsDark] = useState(false);
   const [meterVal, setMeterVal] = useState(72);
   const [formulaInput, setFormulaInput] = useState('Ca10(PO4)6(OH)2');
