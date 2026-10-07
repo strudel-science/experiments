@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { Database, Dna, FlaskConical, Gauge, Moon, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -10,11 +10,11 @@ import { LabelValueTable } from '@/components/kit/LabelValueTable';
 import { LinkCard } from '@/components/kit/LinkCard';
 
 export function App() {
-  const [isDark, setIsDark] = React.useState(false);
-  const [meterVal, setMeterVal] = React.useState(72);
-  const [formulaInput, setFormulaInput] = React.useState('Ca10(PO4)6(OH)2');
+  const [isDark, setIsDark] = useState(false);
+  const [meterVal, setMeterVal] = useState(72);
+  const [formulaInput, setFormulaInput] = useState('Ca10(PO4)6(OH)2');
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add('dark');
     } else {
@@ -39,7 +39,6 @@ export function App() {
                 </p>
               </div>
             </div>
-
             <div className="flex items-center gap-2">
               <Badge variant="outline" className="font-mono text-xs">
                 v0.1.0-alpha
@@ -62,7 +61,6 @@ export function App() {
             </div>
           </div>
         </header>
-
         {/* Main Content */}
         <main className="max-w-6xl mx-auto p-6 md:p-8 space-y-10">
           {/* Intro Section */}
@@ -73,7 +71,6 @@ export function App() {
               Built with modern React, Base UI primitives, and Tailwind styling.
             </p>
           </section>
-
           {/* Section 1: Chemical Formula */}
           <section className="space-y-4">
             <div className="flex items-center gap-2">
@@ -107,7 +104,6 @@ export function App() {
                     <ChemicalFormula content="C6H12O6" className="text-xl font-bold" />
                   </div>
                 </div>
-
                 <div className="pt-4 border-t border-border flex items-center gap-3">
                   <label htmlFor="formula-test" className="text-sm font-medium">
                     Try custom formula:
@@ -127,7 +123,6 @@ export function App() {
               </CardContent>
             </Card>
           </section>
-
           {/* Section 2: LinearMeter */}
           <section className="space-y-4">
             <div className="flex items-center gap-2">
@@ -171,7 +166,6 @@ export function App() {
               </CardContent>
             </Card>
           </section>
-
           {/* Section 3: LabelValueTable */}
           <section className="space-y-4">
             <div className="flex items-center gap-2">
@@ -218,7 +212,6 @@ export function App() {
               </CardContent>
             </Card>
           </section>
-
           {/* Section 4: LinkCard */}
           <section className="space-y-4">
             <div className="flex items-center gap-2">

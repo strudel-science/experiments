@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type { HTMLAttributes } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/utils';
 
@@ -31,10 +31,7 @@ const indicatorVariants = cva('h-full w-full flex-1 transition-all duration-300 
 });
 
 export interface LinearMeterProps
-  extends
-    React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof meterVariants>,
-    VariantProps<typeof indicatorVariants> {
+  extends HTMLAttributes<HTMLDivElement>, VariantProps<typeof meterVariants>, VariantProps<typeof indicatorVariants> {
   /**
    * The current numeric value to display on the meter.
    */

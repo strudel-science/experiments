@@ -1,17 +1,17 @@
-import * as React from 'react';
+import type { AnchorHTMLAttributes, ReactNode } from 'react';
 import { ExternalLink } from 'lucide-react';
 import { cn } from '@/utils';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
-export interface LinkCardProps extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'title'> {
+export interface LinkCardProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'title'> {
   /**
    * Primary title or heading for the card.
    */
-  title: React.ReactNode;
+  title: ReactNode;
   /**
    * Detailed explanation, abstract, or summary text.
    */
-  description?: React.ReactNode;
+  description?: ReactNode;
   /**
    * Destination URL or path.
    * @default '#'
@@ -20,11 +20,11 @@ export interface LinkCardProps extends Omit<React.AnchorHTMLAttributes<HTMLAncho
   /**
    * Optional icon, image, or thumbnail graphic.
    */
-  icon?: React.ReactNode;
+  icon?: ReactNode;
   /**
    * Optional status badge or category tag.
    */
-  badge?: React.ReactNode;
+  badge?: ReactNode;
   /**
    * Whether to display an external link indicator icon.
    * Defaults to true if target is '_blank'.

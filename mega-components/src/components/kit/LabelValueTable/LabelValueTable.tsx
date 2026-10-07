@@ -1,22 +1,22 @@
-import * as React from 'react';
+import type { ReactNode, TableHTMLAttributes } from 'react';
 import { cn } from '@/utils';
 
 export interface LabelValueRow {
   /**
    * The label/key for this scientific attribute (e.g. 'Sample ID', 'Molecular Weight').
    */
-  label: React.ReactNode;
+  label: ReactNode;
   /**
    * The value content for this attribute.
    */
-  value: React.ReactNode;
+  value: ReactNode;
   /**
    * Optional auxiliary description or tooltip text.
    */
   description?: string;
 }
 
-export interface LabelValueTableProps extends React.TableHTMLAttributes<HTMLTableElement> {
+export interface LabelValueTableProps extends TableHTMLAttributes<HTMLTableElement> {
   /**
    * Array of label-value pairs to display.
    */
