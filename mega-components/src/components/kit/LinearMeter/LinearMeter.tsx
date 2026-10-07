@@ -1,40 +1,34 @@
-import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/utils";
+import * as React from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '@/utils';
 
-const meterVariants = cva(
-  "relative w-full overflow-hidden rounded-full bg-secondary transition-all",
-  {
-    variants: {
-      size: {
-        sm: "h-1.5",
-        default: "h-2.5",
-        lg: "h-4",
-      },
-    },
-    defaultVariants: {
-      size: "default",
+const meterVariants = cva('relative w-full overflow-hidden rounded-full bg-secondary transition-all', {
+  variants: {
+    size: {
+      sm: 'h-1.5',
+      default: 'h-2.5',
+      lg: 'h-4',
     },
   },
-);
+  defaultVariants: {
+    size: 'default',
+  },
+});
 
-const indicatorVariants = cva(
-  "h-full w-full flex-1 transition-all duration-300 ease-in-out rounded-full",
-  {
-    variants: {
-      variant: {
-        default: "bg-primary",
-        success: "bg-emerald-600 dark:bg-emerald-500",
-        warning: "bg-amber-500 dark:bg-amber-400",
-        destructive: "bg-destructive",
-        info: "bg-sky-500 dark:bg-sky-400",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
+const indicatorVariants = cva('h-full w-full flex-1 transition-all duration-300 ease-in-out rounded-full', {
+  variants: {
+    variant: {
+      default: 'bg-primary',
+      success: 'bg-emerald-600 dark:bg-emerald-500',
+      warning: 'bg-amber-500 dark:bg-amber-400',
+      destructive: 'bg-destructive',
+      info: 'bg-sky-500 dark:bg-sky-400',
     },
   },
-);
+  defaultVariants: {
+    variant: 'default',
+  },
+});
 
 export interface LinearMeterProps
   extends
@@ -79,8 +73,8 @@ export function LinearMeter({
   value,
   min = 0,
   max = 100,
-  variant = "default",
-  size = "default",
+  variant = 'default',
+  size = 'default',
   showValue = false,
   formatValue,
   className,
@@ -94,7 +88,7 @@ export function LinearMeter({
   const formattedText = formatValue ? formatValue(value, percentage) : defaultFormatted;
 
   return (
-    <div className={cn("w-full space-y-1.5", className)} {...props}>
+    <div className={cn('w-full space-y-1.5', className)} {...props}>
       {showValue && (
         <div className="flex justify-between text-xs font-mono font-medium text-muted-foreground">
           <span>{clampedValue}</span>

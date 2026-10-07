@@ -1,12 +1,9 @@
-import * as React from "react";
-import { ExternalLink } from "lucide-react";
-import { cn } from "@/utils";
-import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import * as React from 'react';
+import { ExternalLink } from 'lucide-react';
+import { cn } from '@/utils';
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
-export interface LinkCardProps extends Omit<
-  React.AnchorHTMLAttributes<HTMLAnchorElement>,
-  "title"
-> {
+export interface LinkCardProps extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'title'> {
   /**
    * Primary title or heading for the card.
    */
@@ -53,7 +50,7 @@ export interface LinkCardProps extends Omit<
 export function LinkCard({
   title,
   description,
-  href = "#",
+  href = '#',
   icon,
   badge,
   isExternal,
@@ -61,15 +58,15 @@ export function LinkCard({
   className,
   ...props
 }: LinkCardProps) {
-  const isExternalLink = isExternal ?? target === "_blank";
+  const isExternalLink = isExternal ?? target === '_blank';
 
   return (
     <a
       href={href}
       target={target}
-      rel={isExternalLink ? "noopener noreferrer" : undefined}
+      rel={isExternalLink ? 'noopener noreferrer' : undefined}
       className={cn(
-        "group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+        'group block rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
         className,
       )}
       {...props}
@@ -83,9 +80,7 @@ export function LinkCard({
                   {icon}
                 </div>
               )}
-              <CardTitle className="text-base group-hover:text-primary transition-colors">
-                {title}
-              </CardTitle>
+              <CardTitle className="text-base group-hover:text-primary transition-colors">{title}</CardTitle>
             </div>
             <div className="flex items-center gap-1.5 shrink-0">
               {badge && (
@@ -99,9 +94,7 @@ export function LinkCard({
             </div>
           </div>
           {description && (
-            <CardDescription className="line-clamp-3 text-sm leading-relaxed">
-              {description}
-            </CardDescription>
+            <CardDescription className="line-clamp-3 text-sm leading-relaxed">{description}</CardDescription>
           )}
         </CardHeader>
       </Card>

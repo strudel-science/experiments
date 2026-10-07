@@ -70,4 +70,5 @@ There should also be a set of shared utility functions for commons computations 
 - Code should generally be functional
 - Props should always have docstrings
 - Components should always have docstrings
+- Always import and use react methods explicitly (e.g. `useState()`) instead of using the base `React` variable for everything (e.g. `React.useState()`)
 

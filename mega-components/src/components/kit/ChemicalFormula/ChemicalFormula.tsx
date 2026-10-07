@@ -1,5 +1,5 @@
-import * as React from "react";
-import { cn, parseChemicalFormula, type FormulaToken } from "@/utils";
+import * as React from 'react';
+import { cn, parseChemicalFormula, type FormulaToken } from '@/utils';
 
 export interface ChemicalFormulaProps extends React.HTMLAttributes<HTMLElement> {
   /**
@@ -11,14 +11,14 @@ export interface ChemicalFormulaProps extends React.HTMLAttributes<HTMLElement> 
    * HTML tag to render as root container.
    * @default 'span'
    */
-  as?: "span" | "div" | "p";
+  as?: 'span' | 'div' | 'p';
 }
 
 /**
  * Helper to render individual tokens with appropriate typographic subscript or standard styling.
  */
 function renderFormulaToken(token: FormulaToken, index: number): React.ReactNode {
-  if (token.type === "number") {
+  if (token.type === 'number') {
     return (
       <sub
         key={index}
@@ -46,17 +46,12 @@ function renderFormulaToken(token: FormulaToken, index: number): React.ReactNode
  * <ChemicalFormula content="Fe2(SO4)3" className="font-semibold text-lg" />
  * ```
  */
-export function ChemicalFormula({
-  content,
-  as: Component = "span",
-  className,
-  ...props
-}: ChemicalFormulaProps) {
+export function ChemicalFormula({ content, as: Component = 'span', className, ...props }: ChemicalFormulaProps) {
   const tokens = React.useMemo(() => parseChemicalFormula(content), [content]);
 
   return (
     <Component
-      className={cn("inline-flex items-baseline font-mono tracking-tight", className)}
+      className={cn('inline-flex items-baseline font-mono tracking-tight', className)}
       aria-label={content}
       {...props}
     >

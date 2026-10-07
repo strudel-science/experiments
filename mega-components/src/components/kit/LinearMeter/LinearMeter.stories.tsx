@@ -1,23 +1,23 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { LinearMeter } from "./LinearMeter";
+import type { Meta, StoryObj } from '@storybook/react';
+import { LinearMeter } from './LinearMeter';
 
 const meta: Meta<typeof LinearMeter> = {
-  title: "Scientific Components/LinearMeter",
+  title: 'Scientific Components/LinearMeter',
   component: LinearMeter,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
-    value: { control: { type: "range", min: 0, max: 100, step: 1 } },
-    min: { control: "number" },
-    max: { control: "number" },
+    value: { control: { type: 'range', min: 0, max: 100, step: 1 } },
+    min: { control: 'number' },
+    max: { control: 'number' },
     variant: {
-      control: "select",
-      options: ["default", "success", "warning", "destructive", "info"],
+      control: 'select',
+      options: ['default', 'success', 'warning', 'destructive', 'info'],
     },
     size: {
-      control: "select",
-      options: ["sm", "default", "lg"],
+      control: 'select',
+      options: ['sm', 'default', 'lg'],
     },
-    showValue: { control: "boolean" },
+    showValue: { control: 'boolean' },
   },
 };
 
@@ -34,7 +34,7 @@ export const Default: Story = {
 export const SuccessThreshold: Story = {
   args: {
     value: 92,
-    variant: "success",
+    variant: 'success',
     showValue: true,
   },
 };
@@ -42,7 +42,7 @@ export const SuccessThreshold: Story = {
 export const WarningUtilization: Story = {
   args: {
     value: 78,
-    variant: "warning",
+    variant: 'warning',
     showValue: true,
     formatValue: (val) => `${val}% Cluster Load`,
   },
@@ -51,8 +51,8 @@ export const WarningUtilization: Story = {
 export const CriticalAlert: Story = {
   args: {
     value: 98,
-    variant: "destructive",
+    variant: 'destructive',
     showValue: true,
-    size: "lg",
+    size: 'lg',
   },
 };

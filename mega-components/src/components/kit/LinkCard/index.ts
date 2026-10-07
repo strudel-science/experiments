@@ -1,1 +1,1 @@
-export { LinkCard, type LinkCardProps } from "./LinkCard";
+export { LinkCard, type LinkCardProps } from './LinkCard';

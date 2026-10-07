@@ -1,24 +1,24 @@
-import * as React from "react";
-import { Database, Dna, FlaskConical, Gauge, Moon, Sun } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
-import { ChemicalFormula } from "@/components/kit/ChemicalFormula";
-import { LinearMeter } from "@/components/kit/LinearMeter";
-import { LabelValueTable } from "@/components/kit/LabelValueTable";
-import { LinkCard } from "@/components/kit/LinkCard";
+import * as React from 'react';
+import { Database, Dna, FlaskConical, Gauge, Moon, Sun } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from '@/components/ui/tooltip';
+import { ChemicalFormula } from '@/components/kit/ChemicalFormula';
+import { LinearMeter } from '@/components/kit/LinearMeter';
+import { LabelValueTable } from '@/components/kit/LabelValueTable';
+import { LinkCard } from '@/components/kit/LinkCard';
 
 export function App() {
   const [isDark, setIsDark] = React.useState(false);
   const [meterVal, setMeterVal] = React.useState(72);
-  const [formulaInput, setFormulaInput] = React.useState("Ca10(PO4)6(OH)2");
+  const [formulaInput, setFormulaInput] = React.useState('Ca10(PO4)6(OH)2');
 
   React.useEffect(() => {
     if (isDark) {
-      document.documentElement.classList.add("dark");
+      document.documentElement.classList.add('dark');
     } else {
-      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.remove('dark');
     }
   }, [isDark]);
 
@@ -33,9 +33,7 @@ export function App() {
                 <FlaskConical className="size-5" />
               </div>
               <div>
-                <h1 className="text-lg font-bold leading-none tracking-tight">
-                  Mega Components Library
-                </h1>
+                <h1 className="text-lg font-bold leading-none tracking-tight">Mega Components Library</h1>
                 <p className="text-xs text-muted-foreground mt-0.5">
                   Reusable scientific frontend components for research applications
                 </p>
@@ -59,7 +57,7 @@ export function App() {
                     </Button>
                   }
                 />
-                <TooltipContent>Toggle {isDark ? "Light" : "Dark"} Mode</TooltipContent>
+                <TooltipContent>Toggle {isDark ? 'Light' : 'Dark'} Mode</TooltipContent>
               </Tooltip>
             </div>
           </div>
@@ -71,9 +69,8 @@ export function App() {
           <section className="space-y-2">
             <h2 className="text-2xl font-bold tracking-tight">Scientific UI Components</h2>
             <p className="text-muted-foreground max-w-3xl leading-relaxed">
-              Standardized components designed for data portals, high-performance computing, and
-              laboratory workflows. Built with modern React, Base UI primitives, and Tailwind
-              styling.
+              Standardized components designed for data portals, high-performance computing, and laboratory workflows.
+              Built with modern React, Base UI primitives, and Tailwind styling.
             </p>
           </section>
 
@@ -87,34 +84,26 @@ export function App() {
               <CardHeader>
                 <CardTitle>Automatic Subscript Formatting</CardTitle>
                 <CardDescription>
-                  Accurately renders complex stoichiometric formulas, hydrates, and ions without
-                  requiring manual markup.
+                  Accurately renders complex stoichiometric formulas, hydrates, and ions without requiring manual
+                  markup.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="flex flex-wrap items-center gap-6">
                   <div className="p-3 bg-muted rounded-lg border border-border">
-                    <span className="text-xs font-mono text-muted-foreground block mb-1">
-                      Water
-                    </span>
+                    <span className="text-xs font-mono text-muted-foreground block mb-1">Water</span>
                     <ChemicalFormula content="H2O" className="text-xl font-bold" />
                   </div>
                   <div className="p-3 bg-muted rounded-lg border border-border">
-                    <span className="text-xs font-mono text-muted-foreground block mb-1">
-                      Iron(III) Sulfate
-                    </span>
+                    <span className="text-xs font-mono text-muted-foreground block mb-1">Iron(III) Sulfate</span>
                     <ChemicalFormula content="Fe2(SO4)3" className="text-xl font-bold" />
                   </div>
                   <div className="p-3 bg-muted rounded-lg border border-border">
-                    <span className="text-xs font-mono text-muted-foreground block mb-1">
-                      Copper Hydrate
-                    </span>
+                    <span className="text-xs font-mono text-muted-foreground block mb-1">Copper Hydrate</span>
                     <ChemicalFormula content="CuSO4·5H2O" className="text-xl font-bold" />
                   </div>
                   <div className="p-3 bg-muted rounded-lg border border-border">
-                    <span className="text-xs font-mono text-muted-foreground block mb-1">
-                      Glucose
-                    </span>
+                    <span className="text-xs font-mono text-muted-foreground block mb-1">Glucose</span>
                     <ChemicalFormula content="C6H12O6" className="text-xl font-bold" />
                   </div>
                 </div>
@@ -149,8 +138,7 @@ export function App() {
               <CardHeader>
                 <CardTitle>Horizontal One-Dimensional Metrics</CardTitle>
                 <CardDescription>
-                  Accessible progress and threshold visualizer with customizable variants and ARIA
-                  meter attributes.
+                  Accessible progress and threshold visualizer with customizable variants and ARIA meter attributes.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -173,12 +161,7 @@ export function App() {
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium">Warning Threshold (Memory Usage)</label>
-                    <LinearMeter
-                      value={81}
-                      showValue
-                      variant="warning"
-                      formatValue={(val) => `${val} GB / 100 GB`}
-                    />
+                    <LinearMeter value={81} showValue variant="warning" formatValue={(val) => `${val} GB / 100 GB`} />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium">Destructive Alert (Thermal Load)</label>
@@ -199,32 +182,32 @@ export function App() {
               <CardHeader>
                 <CardTitle>Scientific Metadata & Entity Attributes</CardTitle>
                 <CardDescription>
-                  Two-column semantic layout optimized for sample metadata, experiment parameters,
-                  and instrument telemetry.
+                  Two-column semantic layout optimized for sample metadata, experiment parameters, and instrument
+                  telemetry.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <LabelValueTable
                   rows={[
                     {
-                      label: "Biosample ID",
-                      value: "SMP-EAST-RIVER-2026",
-                      description: "Persistent identifier",
+                      label: 'Biosample ID',
+                      value: 'SMP-EAST-RIVER-2026',
+                      description: 'Persistent identifier',
                     },
                     {
-                      label: "Sample Composition",
+                      label: 'Sample Composition',
                       value: <ChemicalFormula content="Fe2O3·H2O" className="font-semibold" />,
                     },
                     {
-                      label: "Geographic Origin",
-                      value: "Gothic, Colorado (38.9585° N, 106.9894° W)",
+                      label: 'Geographic Origin',
+                      value: 'Gothic, Colorado (38.9585° N, 106.9894° W)',
                     },
                     {
-                      label: "Sequencing Quality (Q30)",
-                      value: "96.4%",
+                      label: 'Sequencing Quality (Q30)',
+                      value: '96.4%',
                     },
                     {
-                      label: "Pipeline Status",
+                      label: 'Pipeline Status',
                       value: <Badge variant="outline">QC Passed</Badge>,
                     },
                   ]}

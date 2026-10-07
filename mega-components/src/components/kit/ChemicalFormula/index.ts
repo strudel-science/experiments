@@ -1,1 +1,1 @@
-export { ChemicalFormula, type ChemicalFormulaProps } from "./ChemicalFormula";
+export { ChemicalFormula, type ChemicalFormulaProps } from './ChemicalFormula';

@@ -1,1 +1,1 @@
-export { LabelValueTable, type LabelValueTableProps, type LabelValueRow } from "./LabelValueTable";
+export { LabelValueTable, type LabelValueTableProps, type LabelValueRow } from './LabelValueTable';
