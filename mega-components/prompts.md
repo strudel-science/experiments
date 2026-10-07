@@ -14,10 +14,10 @@ move all the utils into one src/utils.ts file. And I think we can get rid of src
 
 @[mega-components/.oxlintrc.json] add a rule about preferring arrow functions
 
-## 10/06/2026 06:12 PM
+### 06:12 PM
 
 I do want to also want to disallow function declarations in favor of const foo = () => ... function expressions across the codebase
 
-## 10/06/2026 06:17 PM
+### 06:17 PM
 
 Now fix all the linting errors introduced by these new rules
