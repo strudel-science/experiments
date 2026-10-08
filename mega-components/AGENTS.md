@@ -76,7 +76,10 @@ There should also be a set of shared utility functions for common computations t
 ## Agent Behavior
 
 - Always summarize and explain what you did and why you did it after making changes.
-- Log my exact prompts in `prompts.md`. Each initial prompt for a chat thread should be logged with ## while any follow-up prompts within that same thread should use ### and only show the time (not the full date). For example:
+- Log my exact prompts in `prompts.md`.
+  - Each initial prompt for a chat thread should be logged with ## while any follow-up prompts within that same thread should use ### and only show the time (not the full date).
+  - If there are markdown headings inside the prompt, the headings and their inner content should be put into a blockquote.
+  - Example:
 
 ```md
 ## 10/07/2026 5:00 PM
@@ -90,6 +93,10 @@ This is a follow-up prompt inside the first conversation thread.
 ### 5:11 PM
 
 This is another follow-up prompt inside the first conversation thread.
+
+> # This heading is part of the prompt
+>
+> Here is the content within that heading section
 
 ## 10/07/2026 5:31 PM
 

@@ -30,30 +30,50 @@ The formatFileSize parameter name should be binaryPrefix not just binary.
 
 Note the new instructions in /Users/ctodonnell/Documents/Projects/Strudel/code/experiments/mega-components/AGENTS.md about .design.md files for components:
 
-## Custom Components
+>## Custom Components
+>
+>Customized components should live in `src/components/kit` while components brought in directly from shadcn/base-ui should live in `src/components/ui`.
+>
+>When writing a new custom component, it should always have its own new directory in `src/components/kit` that is named after the component itself (e.g. `MyCustomComponent/`). Inside the component's directory should live its main component file (e.g. `MyCustomComponent.tsx`), its unit test file (e.g. `MyCustomComponent.test.tsx`), its storybook story file (e.g. `MyCustomComponent.stories.tsx`), and its design file (e.g. `MyCustomComponent.design.md`).
+>
+>### Component Design Files (`.design.md`)
+>
+>The design file (`.design.md`) for each component should be a human-readable and agent-readable specification that describes four things about the component: Brief Description, Scientific Motivation, Usage Guidelines, and Inspiration Sources. Use the below as a template:
+>
+>```md
+># {{ ComponentName }}
+>
+>{{ brief description of the component }}
+>
+>## Scientific Motivation
+>
+>{{ describe why this component is important for scientific web applications }}
+>
+>## Usage Guidelines
+>
+>{{ describe when and how this component should be used }}
+>
+>## Inspiration Sources
+>
+>- {{ list links to sources that inspired the inclusion of this component }}
+>```
 
-Customized components should live in `src/components/kit` while components brought in directly from shadcn/base-ui should live in `src/components/ui`.
+## 10/08/2026 11:32 AM
 
-When writing a new custom component, it should always have its own new directory in `src/components/kit` that is named after the component itself (e.g. `MyCustomComponent/`). Inside the component's directory should live its main component file (e.g. `MyCustomComponent.tsx`), its unit test file (e.g. `MyCustomComponent.test.tsx`), its storybook story file (e.g. `MyCustomComponent.stories.tsx`), and its design file (e.g. `MyCustomComponent.design.md`).
+I want the theme selection in storybook (light or dark) to be in sync with the ThemeProvider from @[mega-components/src/components/theme-provider.tsx] . Is that possible?
 
-### Component Design Files (`.design.md`)
+### 11:35 AM
 
-The design file (`.design.md`) for each component should be a human-readable and agent-readable specification that describes four things about the component: Brief Description, Scientific Motivation, Usage Guidelines, and Inspiration Sources. Use the below as a template:
+yes implement
 
-```md
-# {{ ComponentName }}
+### 11:38 AM
 
-{{ brief description of the component }}
+issue: Cannot find module or type declarations for side-effect import of '../src/index.css'.ts(2882)
 
-## Scientific Motivation
+### 11:43 AM
 
-{{ describe why this component is important for scientific web applications }}
+This also needs to be synced with the native storybook "background" value. I would also like the storybook body to change from light to dark when this option changes (not just the demo blocks) /boost
 
-## Usage Guidelines
+### 12:25 PM
 
-{{ describe when and how this component should be used }}
-
-## Inspiration Sources
-
-- {{ list links to sources that inspired the inclusion of this component }}
-```
+I can't accept these changes. They are far too complex and they produce errors on the frontend ui. The UI flashes back and forth repeatedely between light and dark when toggling. It would be better if there were not two buttons. Only implement a fix if it can be far more comprehensible and simplified.
