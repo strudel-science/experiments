@@ -182,3 +182,249 @@ export const formatScientificNumber = (
 
   return Number(val.toPrecision(precision)).toString();
 };
+
+export interface FormatFileSizeOptions {
+  /**
+   * If true, uses IEC binary powers of 1024 (KiB, MiB, GiB, etc.).
+   * If false, uses decimal SI powers of 1000 (kB, MB, GB, etc.).
+   * @default false
+   */
+  binaryPrefix?: boolean;
+  /**
+   * Number of decimal places to display.
+   * @default 1
+   */
+  precision?: number;
+}
+
+/**
+ * Formats a byte number into a human-readable file size string.
+ * Defaults to decimal SI (powers of 1000: kB, MB, GB).
+ * Edge cases: 0 bytes -> '0 B', negative numbers -> '', null/undefined -> ''.
+ *
+ * @param bytes - Size in bytes
+ * @param options - Formatting configuration options
+ * @returns Human-readable size string
+ */
+export const formatFileSize = (
+  bytes: number | null | undefined,
+  options?: FormatFileSizeOptions,
+): string => {
+  if (
+    bytes === null ||
+    bytes === undefined ||
+    typeof bytes !== 'number' ||
+    !Number.isFinite(bytes) ||
+    bytes < 0
+  ) {
+    return '';
+  }
+  if (bytes === 0) {
+    return '0 B';
+  }
+  const binaryPrefix = options?.binaryPrefix ?? false;
+  const precision = options?.precision ?? 1;
+  const thresh = binaryPrefix ? 1024 : 1000;
+  if (bytes < thresh) {
+    return `${bytes} B`;
+  }
+  const units = binaryPrefix
+    ? ['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB']
+    : ['kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+  let u = -1;
+  let current = bytes;
+  const r = 10 ** precision;
+  do {
+    current /= thresh;
+    u += 1;
+  } while (Math.round(current * r) / r >= thresh && u < units.length - 1);
+
+  return `${current.toFixed(precision)} ${units[u]}`;
+};
+
+/**
+ * Safely downloads a Blob object on the client side via a temporary anchor element.
+ * Creates an ObjectURL, simulates a download click, removes the anchor, and revokes the ObjectURL.
+ *
+ * @param blob - The Blob data to download
+ * @param filename - Target filename for the download
+ */
+export const downloadBlob = (blob: Blob, filename: string): void => {
+  const url = window.URL.createObjectURL(blob);
+  const downloadAnchor = document.createElement('a');
+  downloadAnchor.setAttribute('href', url);
+  downloadAnchor.setAttribute('download', filename);
+  document.body.appendChild(downloadAnchor);
+  downloadAnchor.click();
+  downloadAnchor.remove();
+  window.URL.revokeObjectURL(url);
+};
+
+/**
+ * Safe client-side file exporter creating an ObjectURL from Blob, string, or plain object/data.
+ *
+ * @param content - Content to export (Blob, string, or JSON-serializable object)
+ * @param filename - Target filename for the downloaded file
+ * @param mimeType - Optional MIME type override
+ */
+export const downloadFile = (
+  content: Blob | string | object,
+  filename: string,
+  mimeType?: string,
+): void => {
+  let blob: Blob;
+  if (content instanceof Blob) {
+    blob = content;
+  } else if (typeof content === 'string') {
+    blob = new Blob([content], { type: mimeType ?? 'text/plain;charset=utf-8' });
+  } else {
+    blob = new Blob([JSON.stringify(content, null, 2)], {
+      type: mimeType ?? 'application/json;charset=utf-8',
+    });
+  }
+  downloadBlob(blob, filename);
+};
+
+export interface QuantityValue {
+  /** Single numeric measurement */
+  value?: number | null;
+  /** Minimum numeric bound in an interval or range */
+  min?: number | null;
+  /** Maximum numeric bound in an interval or range */
+  max?: number | null;
+  /** Measurement unit (e.g. 'm', '°C', 'mg/L', or '1' for dimensionless) */
+  unit?: string | null;
+  /** Fallback raw value string (e.g. from legacy or unstructured data) */
+  rawValue?: string | null;
+  /** Optional LinkML / NMDC snake_case compatibility */
+  has_numeric_value?: number | null;
+  has_minimum_numeric_value?: number | null;
+  has_maximum_numeric_value?: number | null;
+  has_unit?: string | null;
+  has_raw_value?: string | null;
+}
+
+/**
+ * Physical measurement and range formatter for QuantityValue objects.
+ * Handles dimensionless units (unit === '1'), single values, intervals (min - max unit),
+ * and bounded values (> min, < max).
+ *
+ * @param quantity - QuantityValue measurement object or null/undefined
+ * @returns Formatted quantity string
+ */
+export const formatQuantity = (quantity: QuantityValue | null | undefined): string => {
+  if (!quantity) return '';
+
+  const val = quantity.value ?? quantity.has_numeric_value;
+  const min = quantity.min ?? quantity.has_minimum_numeric_value;
+  const max = quantity.max ?? quantity.has_maximum_numeric_value;
+  const unit = quantity.unit ?? quantity.has_unit;
+  const rawValue = quantity.rawValue ?? quantity.has_raw_value;
+
+  const hasUnit = unit !== null && unit !== undefined && unit !== '' && unit !== '1';
+  const unitSuffix = hasUnit ? ` ${unit}` : '';
+
+  const hasMin = min !== null && min !== undefined && !Number.isNaN(min);
+  const hasMax = max !== null && max !== undefined && !Number.isNaN(max);
+  const hasVal = val !== null && val !== undefined && !Number.isNaN(val);
+
+  // Interval: min - max unit
+  if (hasMin && hasMax) {
+    return `${min} - ${max}${unitSuffix}`;
+  }
+
+  // Bounded: > min
+  if (hasMin && !hasMax && !hasVal) {
+    return `> ${min}${unitSuffix}`;
+  }
+
+  // Bounded: < max
+  if (hasMax && !hasMin && !hasVal) {
+    return `< ${max}${unitSuffix}`;
+  }
+
+  // Single value: value unit
+  if (hasVal) {
+    return `${val}${unitSuffix}`;
+  }
+
+  // Fallback to rawValue if present
+  if (rawValue) {
+    return rawValue;
+  }
+
+  return '';
+};
+
+export interface FormatCompactNumberOptions {
+  /** Maximum number of fraction digits to display @default 1 */
+  precision?: number;
+  /** Prefix to prepend to the number (e.g. '$') @default '' */
+  prefix?: string;
+  /** Suffix to append to the formatted string (e.g. '/yr') @default '' */
+  suffix?: string;
+  /** Locale for number formatting @default 'en-US' */
+  locale?: string;
+}
+
+/**
+ * Metric suffix formatter for large numbers (K, M, B, T).
+ *
+ * @param num - Number to format
+ * @param options - Formatting options
+ * @returns Formatted compact number string
+ */
+export const formatCompactNumber = (
+  num: number | null | undefined,
+  options?: FormatCompactNumberOptions,
+): string => {
+  if (
+    num === null ||
+    num === undefined ||
+    typeof num !== 'number' ||
+    !Number.isFinite(num)
+  ) {
+    return '';
+  }
+  const { precision = 1, prefix = '', suffix = '', locale = 'en-US' } = options ?? {};
+  const isNegative = num < 0;
+  const abs = Math.abs(num);
+
+  const units = [
+    { value: 1e12, symbol: 'T' },
+    { value: 1e9, symbol: 'B' },
+    { value: 1e6, symbol: 'M' },
+    { value: 1e3, symbol: 'K' },
+  ];
+
+  let matchedIndex = units.findIndex((u) => abs >= u.value);
+  let scaled = abs;
+  let unitSymbol = '';
+
+  if (matchedIndex !== -1) {
+    scaled = abs / units[matchedIndex].value;
+    const factor = 10 ** precision;
+    // Handle rounding rollover (e.g. 999.95 rounding to 1000 at precision 1)
+    if (Math.round(scaled * factor) / factor >= 1000 && matchedIndex > 0) {
+      matchedIndex -= 1;
+      scaled = abs / units[matchedIndex].value;
+    }
+    unitSymbol = units[matchedIndex].symbol;
+  } else {
+    // If abs < 1000, check if rounding brings it to 1000 (rolling over to 1K)
+    const factor = 10 ** precision;
+    if (Math.round(abs * factor) / factor >= 1000) {
+      scaled = abs / 1e3;
+      unitSymbol = 'K';
+    }
+  }
+
+  const formattedNumber = new Intl.NumberFormat(locale, {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: precision,
+  }).format(scaled);
+
+  const sign = isNegative ? '-' : '';
+  return `${sign}${prefix}${formattedNumber}${unitSymbol}${suffix}`;
+};
+

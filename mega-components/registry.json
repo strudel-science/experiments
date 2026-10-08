@@ -62,7 +62,66 @@
           "target": "components/mega/link-card.tsx"
         }
       ]
+    },
+    {
+      "name": "cell-with-popover",
+      "type": "registry:ui",
+      "title": "Cell with Popover",
+      "description": "Data grid cell enhancements for truncating overflowing text and multi-value arrays with hover/click popovers.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["popover", "badge"],
+      "files": [
+        {
+          "path": "src/components/kit/CellWithPopover/CellWithPopover.tsx",
+          "type": "registry:ui",
+          "target": "components/mega/cell-with-popover.tsx"
+        }
+      ]
+    },
+    {
+      "name": "click-to-copy",
+      "type": "registry:ui",
+      "title": "Click to Copy",
+      "description": "Accessible button to copy scientific identifiers, DOIs, accessions, and commands with tooltip feedback.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["tooltip", "button"],
+      "files": [
+        {
+          "path": "src/components/kit/ClickToCopy/ClickToCopy.tsx",
+          "type": "registry:ui",
+          "target": "components/mega/click-to-copy.tsx"
+        }
+      ]
+    },
+    {
+      "name": "filter-chips",
+      "type": "registry:ui",
+      "title": "Filter Chips",
+      "description": "Dismissible chips displaying active search and facet filters with categories and clear all action.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "src/components/kit/FilterChips/FilterChips.tsx",
+          "type": "registry:ui",
+          "target": "components/mega/filter-chips.tsx"
+        }
+      ]
+    },
+    {
+      "name": "page-header",
+      "type": "registry:ui",
+      "title": "Page Header",
+      "description": "Top-level page header with breadcrumb navigation, title, badge, description, actions, and metadata slots.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/components/kit/PageHeader/PageHeader.tsx",
+          "type": "registry:ui",
+          "target": "components/mega/page-header.tsx"
+        }
+      ]
     }
   ]
 }
-

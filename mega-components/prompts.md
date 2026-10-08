@@ -21,3 +21,39 @@ I do want to also want to disallow function declarations in favor of const foo =
 ### 06:17 PM
 
 Now fix all the linting errors introduced by these new rules
+
+## 10/07/2026 05:18 PM
+
+This all sounds good please implement but consider the following:
+
+The formatFileSize parameter name should be binaryPrefix not just binary.
+
+Note the new instructions in /Users/ctodonnell/Documents/Projects/Strudel/code/experiments/mega-components/AGENTS.md about .design.md files for components:
+
+## Custom Components
+
+Customized components should live in `src/components/kit` while components brought in directly from shadcn/base-ui should live in `src/components/ui`.
+
+When writing a new custom component, it should always have its own new directory in `src/components/kit` that is named after the component itself (e.g. `MyCustomComponent/`). Inside the component's directory should live its main component file (e.g. `MyCustomComponent.tsx`), its unit test file (e.g. `MyCustomComponent.test.tsx`), its storybook story file (e.g. `MyCustomComponent.stories.tsx`), and its design file (e.g. `MyCustomComponent.design.md`).
+
+### Component Design Files (`.design.md`)
+
+The design file (`.design.md`) for each component should be a human-readable and agent-readable specification that describes four things about the component: Brief Description, Scientific Motivation, Usage Guidelines, and Inspiration Sources. Use the below as a template:
+
+```md
+# {{ ComponentName }}
+
+{{ brief description of the component }}
+
+## Scientific Motivation
+
+{{ describe why this component is important for scientific web applications }}
+
+## Usage Guidelines
+
+{{ describe when and how this component should be used }}
+
+## Inspiration Sources
+
+- {{ list links to sources that inspired the inclusion of this component }}
+```
