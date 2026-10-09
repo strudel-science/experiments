@@ -128,3 +128,21 @@
     @apply font-sans;
   }
 }
+
+/* Storybook dark mode overrides */
+.dark body.sb-show-main,
+.dark #storybook-root,
+.dark .sbdocs-wrapper {
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
+}
+
+.dark .sbdocs-content {
+  color: var(--foreground) !important;
+}
+
+.dark .docs-story,
+.dark .sbdocs-preview {
+  background-color: var(--card) !important;
+  border-color: var(--border) !important;
+}
