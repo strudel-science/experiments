@@ -19,11 +19,7 @@ describe('CellWithPopover', () => {
   });
 
   it('supports disabled prop on trigger', () => {
-    render(
-      <CellWithPopover disabled>
-        Disabled cell
-      </CellWithPopover>,
-    );
+    render(<CellWithPopover disabled>Disabled cell</CellWithPopover>);
     const trigger = screen.getByRole('button');
     expect(trigger).toBeDisabled();
   });

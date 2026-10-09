@@ -58,4 +58,4 @@ export const ChemicalFormula = ({ content, as: Component = 'span', className, ..
       {tokens.map((token, index) => renderFormulaToken(token, index))}
     </Component>
   );
-}
+};

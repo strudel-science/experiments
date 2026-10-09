@@ -213,9 +213,7 @@ export const ArrayWithPopover = ({
       </div>
       <PopoverContent side="bottom" align="start" className="w-64 p-3 shadow-lg">
         {popoverTitle ? (
-          <div className="mb-2 text-xs font-semibold text-muted-foreground border-b pb-1">
-            {popoverTitle}
-          </div>
+          <div className="mb-2 text-xs font-semibold text-muted-foreground border-b pb-1">{popoverTitle}</div>
         ) : (
           <div className="mb-2 text-xs font-semibold text-muted-foreground border-b pb-1">
             All Items ({values.length})

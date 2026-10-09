@@ -144,11 +144,7 @@ export const hasValue = (value: unknown): boolean => {
  * @param max - Maximum bound
  * @returns True if range represents an active filter
  */
-export const rangeHasValue = (
-  value: [number, number] | null | undefined,
-  min: number,
-  max: number,
-): boolean => {
+export const rangeHasValue = (value: [number, number] | null | undefined, min: number, max: number): boolean => {
   if (!value) return false;
   const [low, high] = value;
   return (low !== null && low !== min) || (high !== null && high !== max);
@@ -206,17 +202,8 @@ export interface FormatFileSizeOptions {
  * @param options - Formatting configuration options
  * @returns Human-readable size string
  */
-export const formatFileSize = (
-  bytes: number | null | undefined,
-  options?: FormatFileSizeOptions,
-): string => {
-  if (
-    bytes === null ||
-    bytes === undefined ||
-    typeof bytes !== 'number' ||
-    !Number.isFinite(bytes) ||
-    bytes < 0
-  ) {
+export const formatFileSize = (bytes: number | null | undefined, options?: FormatFileSizeOptions): string => {
+  if (bytes === null || bytes === undefined || typeof bytes !== 'number' || !Number.isFinite(bytes) || bytes < 0) {
     return '';
   }
   if (bytes === 0) {
@@ -267,11 +254,7 @@ export const downloadBlob = (blob: Blob, filename: string): void => {
  * @param filename - Target filename for the downloaded file
  * @param mimeType - Optional MIME type override
  */
-export const downloadFile = (
-  content: Blob | string | object,
-  filename: string,
-  mimeType?: string,
-): void => {
+export const downloadFile = (content: Blob | string | object, filename: string, mimeType?: string): void => {
   let blob: Blob;
   if (content instanceof Blob) {
     blob = content;
@@ -374,16 +357,8 @@ export interface FormatCompactNumberOptions {
  * @param options - Formatting options
  * @returns Formatted compact number string
  */
-export const formatCompactNumber = (
-  num: number | null | undefined,
-  options?: FormatCompactNumberOptions,
-): string => {
-  if (
-    num === null ||
-    num === undefined ||
-    typeof num !== 'number' ||
-    !Number.isFinite(num)
-  ) {
+export const formatCompactNumber = (num: number | null | undefined, options?: FormatCompactNumberOptions): string => {
+  if (num === null || num === undefined || typeof num !== 'number' || !Number.isFinite(num)) {
     return '';
   }
   const { precision = 1, prefix = '', suffix = '', locale = 'en-US' } = options ?? {};
@@ -427,4 +402,3 @@ export const formatCompactNumber = (
   const sign = isNegative ? '-' : '';
   return `${sign}${prefix}${formattedNumber}${unitSymbol}${suffix}`;
 };
-

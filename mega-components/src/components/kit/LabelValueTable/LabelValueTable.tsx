@@ -106,4 +106,4 @@ export const LabelValueTable = ({
       </table>
     </div>
   );
-}
+};

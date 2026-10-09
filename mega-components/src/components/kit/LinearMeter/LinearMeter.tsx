@@ -108,4 +108,4 @@ export const LinearMeter = ({
       </div>
     </div>
   );
-}
+};

@@ -29,7 +29,9 @@ export const Default: Story = {
     ],
     actions: (
       <div className="flex gap-2">
-        <Button variant="outline" size="sm">Share</Button>
+        <Button variant="outline" size="sm">
+          Share
+        </Button>
         <Button size="sm">Download FASTQ</Button>
       </div>
     ),
@@ -53,9 +55,7 @@ export const WithMetadata: Story = {
       { label: 'Structures', href: '#' },
       { label: '1FP6', current: true },
     ],
-    actions: (
-      <Button size="sm">Export CIF</Button>
-    ),
+    actions: <Button size="sm">Export CIF</Button>,
     metadata: (
       <>
         <span>DOI: 10.2210/pdb1fp6/pdb</span>

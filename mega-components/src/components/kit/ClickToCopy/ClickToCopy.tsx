@@ -170,7 +170,10 @@ export const ClickToCopy = ({
               {copied ? (
                 <Check className="size-3.5" data-testid="copy-icon-check" />
               ) : (
-                <Copy className="size-3.5 text-muted-foreground group-hover/copy:text-foreground" data-testid="copy-icon-copy" />
+                <Copy
+                  className="size-3.5 text-muted-foreground group-hover/copy:text-foreground"
+                  data-testid="copy-icon-copy"
+                />
               )}
             </span>
             <span className="sr-only" aria-live="polite">

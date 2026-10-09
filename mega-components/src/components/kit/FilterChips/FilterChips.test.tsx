@@ -81,13 +81,7 @@ describe('FilterChips', () => {
   });
 
   it('forwards HTML attributes to the container', () => {
-    render(
-      <FilterChips
-        filters={mockFilters}
-        data-testid="filter-chips-container"
-        className="my-custom-chips"
-      />,
-    );
+    render(<FilterChips filters={mockFilters} data-testid="filter-chips-container" className="my-custom-chips" />);
 
     const container = screen.getByTestId('filter-chips-container');
     expect(container).toBeInTheDocument();

@@ -92,10 +92,7 @@ export const PageHeader = ({
                 return (
                   <li key={index} className="inline-flex items-center gap-1.5">
                     {index > 0 && (
-                      <ChevronRight
-                        className="size-3 text-muted-foreground/60 shrink-0"
-                        aria-hidden="true"
-                      />
+                      <ChevronRight className="size-3 text-muted-foreground/60 shrink-0" aria-hidden="true" />
                     )}
                     {item.href && !isCurrent ? (
                       <a
@@ -125,29 +122,17 @@ export const PageHeader = ({
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="space-y-1">
           <div className="flex flex-wrap items-center gap-2.5">
-            <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-              {title}
-            </h1>
+            <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{title}</h1>
             {badge && <div className="inline-flex items-center">{badge}</div>}
           </div>
-          {description && (
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl">
-              {description}
-            </p>
-          )}
+          {description && <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl">{description}</p>}
         </div>
 
-        {actions && (
-          <div className="flex items-center gap-2 shrink-0 sm:self-center">
-            {actions}
-          </div>
-        )}
+        {actions && <div className="flex items-center gap-2 shrink-0 sm:self-center">{actions}</div>}
       </div>
 
       {metadata && (
-        <div className="pt-1 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
-          {metadata}
-        </div>
+        <div className="pt-1 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">{metadata}</div>
       )}
     </header>
   );

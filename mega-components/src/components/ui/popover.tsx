@@ -25,7 +25,8 @@ export const PopoverTrigger = ({ ...props }: PopoverPrimitive.Trigger.Props) => 
 };
 
 export interface PopoverContentProps
-  extends PopoverPrimitive.Popup.Props,
+  extends
+    PopoverPrimitive.Popup.Props,
     Pick<PopoverPrimitive.Positioner.Props, 'align' | 'alignOffset' | 'side' | 'sideOffset'> {
   children?: ReactNode;
 }

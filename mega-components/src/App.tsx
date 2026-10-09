@@ -31,12 +31,7 @@ import {
   PageHeader,
   type FilterChipItem,
 } from '@/components/kit';
-import {
-  formatFileSize,
-  formatQuantity,
-  formatCompactNumber,
-  downloadFile,
-} from '@/utils';
+import { formatFileSize, formatQuantity, formatCompactNumber, downloadFile } from '@/utils';
 
 const initialFilters: FilterChipItem[] = [
   { id: 'biome-soil', category: 'Biome', label: 'Permafrost Active Layer' },
@@ -137,7 +132,8 @@ export const App = () => {
               <CardHeader>
                 <CardTitle>Hierarchical Landmark & Detail View Header</CardTitle>
                 <CardDescription>
-                  Semantic header featuring breadcrumb trails, entity status badges, descriptive abstracts, and action slots.
+                  Semantic header featuring breadcrumb trails, entity status badges, descriptive abstracts, and action
+                  slots.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -226,7 +222,8 @@ export const App = () => {
               <CardHeader>
                 <CardTitle>Data Grid Cell Overflow Enhancements</CardTitle>
                 <CardDescription>
-                  Gracefully truncates long strings and multi-value lists while providing popover previews on hover or click.
+                  Gracefully truncates long strings and multi-value lists while providing popover previews on hover or
+                  click.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -248,7 +245,8 @@ export const App = () => {
                         </td>
                         <td className="p-3 text-xs">
                           <CellWithPopover maxWidth="240px" side="top">
-                            Permafrost thaw gradient with elevated dissolved organic carbon, methane emission fluxes, and cryogenic mineral weathering.
+                            Permafrost thaw gradient with elevated dissolved organic carbon, methane emission fluxes,
+                            and cryogenic mineral weathering.
                           </CellWithPopover>
                         </td>
                         <td className="p-3">
@@ -273,7 +271,8 @@ export const App = () => {
                         </td>
                         <td className="p-3 text-xs">
                           <CellWithPopover maxWidth="240px" side="top">
-                            Strontium iron oxide layered perovskite with non-collinear magnetic ordering calculated under GGA+U functional.
+                            Strontium iron oxide layered perovskite with non-collinear magnetic ordering calculated
+                            under GGA+U functional.
                           </CellWithPopover>
                         </td>
                         <td className="p-3">
@@ -414,15 +413,17 @@ export const App = () => {
                     <Gauge className="size-4 text-primary" />
                     formatQuantity & formatCompactNumber
                   </CardTitle>
-                  <CardDescription>
-                    LinkML QuantityValue formatting and compact metric abbreviation.
-                  </CardDescription>
+                  <CardDescription>LinkML QuantityValue formatting and compact metric abbreviation.</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <div className="p-2.5 rounded bg-muted/40 border border-border flex items-center justify-between text-xs">
                     <span className="text-muted-foreground">Quantity Interval:</span>
                     <span className="font-mono font-medium">
-                      {formatQuantity({ has_minimum_numeric_value: 12.4, has_maximum_numeric_value: 18.9, has_unit: 'mg/L' })}
+                      {formatQuantity({
+                        has_minimum_numeric_value: 12.4,
+                        has_maximum_numeric_value: 18.9,
+                        has_unit: 'mg/L',
+                      })}
                     </span>
                   </div>
                   <div className="p-2.5 rounded bg-muted/40 border border-border flex items-center justify-between text-xs">
@@ -433,9 +434,7 @@ export const App = () => {
                   </div>
                   <div className="p-2.5 rounded bg-muted/40 border border-border flex items-center justify-between text-xs">
                     <span className="text-muted-foreground">Compact Count (1,450,200 reads):</span>
-                    <span className="font-mono font-medium">
-                      {formatCompactNumber(1450200, { suffix: ' reads' })}
-                    </span>
+                    <span className="font-mono font-medium">{formatCompactNumber(1450200, { suffix: ' reads' })}</span>
                   </div>
                 </CardContent>
               </Card>

@@ -11,12 +11,7 @@ describe('PageHeader', () => {
   });
 
   it('renders badge next to title', () => {
-    render(
-      <PageHeader
-        title="Biosample Explorer"
-        badge={<span data-testid="test-badge">Active</span>}
-      />,
-    );
+    render(<PageHeader title="Biosample Explorer" badge={<span data-testid="test-badge">Active</span>} />);
 
     expect(screen.getByTestId('test-badge')).toBeInTheDocument();
     expect(screen.getByText('Active')).toBeInTheDocument();
@@ -30,9 +25,7 @@ describe('PageHeader', () => {
       />,
     );
 
-    expect(
-      screen.getByText('Comprehensive dataset of multi-omics environmental biosamples.'),
-    ).toBeInTheDocument();
+    expect(screen.getByText('Comprehensive dataset of multi-omics environmental biosamples.')).toBeInTheDocument();
   });
 
   it('renders breadcrumbs list with links and current item', () => {
@@ -64,35 +57,19 @@ describe('PageHeader', () => {
   });
 
   it('renders action buttons slot', () => {
-    render(
-      <PageHeader
-        title="Sample View"
-        actions={<button type="button">Download</button>}
-      />,
-    );
+    render(<PageHeader title="Sample View" actions={<button type="button">Download</button>} />);
 
     expect(screen.getByRole('button', { name: 'Download' })).toBeInTheDocument();
   });
 
   it('renders metadata slot', () => {
-    render(
-      <PageHeader
-        title="Sample View"
-        metadata={<span data-testid="meta-info">DOI: 10.1000/182</span>}
-      />,
-    );
+    render(<PageHeader title="Sample View" metadata={<span data-testid="meta-info">DOI: 10.1000/182</span>} />);
 
     expect(screen.getByTestId('meta-info')).toBeInTheDocument();
   });
 
   it('forwards HTML header attributes like data-testid and id', () => {
-    render(
-      <PageHeader
-        title="Sample View"
-        data-testid="main-header"
-        id="sample-header"
-      />,
-    );
+    render(<PageHeader title="Sample View" data-testid="main-header" id="sample-header" />);
 
     const header = screen.getByTestId('main-header');
     expect(header).toBeInTheDocument();
