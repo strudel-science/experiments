@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 import type { Preview } from '@storybook/react-vite';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import { DocsContainer, type DocsContainerProps } from '@storybook/addon-docs/blocks';
